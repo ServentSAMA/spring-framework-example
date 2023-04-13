@@ -61,10 +61,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
     }
 
-    private InMemoryUserDetailsManager inMemoryUserDetailsManager(){
+    private InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        UserDetails userDetails = new User("admin",encoder.encode("admin"), Lists.newArrayList(()->"admin"));
+        UserDetails userDetails = new User("admin", encoder.encode("admin"), Lists.newArrayList(() -> "admin"));
         userDetailsManager.createUser(userDetails);
 
 

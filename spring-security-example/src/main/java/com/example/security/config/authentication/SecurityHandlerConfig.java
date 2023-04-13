@@ -11,10 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
 
 /**
  * @author 申
@@ -25,14 +22,14 @@ import java.io.IOException;
 public class SecurityHandlerConfig {
 
     @Bean
-    public AccessDeniedHandler accessDeniedHandler(){
-        return (request, response, accessDeniedException) -> RequestResult.error(403,"权限不足");
+    public AccessDeniedHandler accessDeniedHandler() {
+        return (request, response, accessDeniedException) -> RequestResult.error(403, "权限不足");
     }
 
     @Bean
-    public AuthenticationEntryPoint authenticationEntryPoint(){
+    public AuthenticationEntryPoint authenticationEntryPoint() {
         return (request, response, authException) -> {
-            if (authException instanceof InsufficientAuthenticationException){
+            if (authException instanceof InsufficientAuthenticationException) {
                 ResponseUtil.response(response, HttpStatusEnum.STATUS_403);
             }
         };

@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/getName")
-    public String getName(String name){
+    public String getName(String name) {
         return "您的名字是：" + name;
     }
+
     @GetMapping("/getId")
-    public String getId(String id){
+    public String getId(String id) {
         return "您的身份是：" + id;
     }
 }
