@@ -19,6 +19,7 @@
     </properties>
 
     <modules>
+        <module>spring-jpa-example</module>
         <module>spring-security-example</module>
     </modules>
 
