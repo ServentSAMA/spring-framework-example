@@ -11,16 +11,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.persistence.EntityManager;
-import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
-class JpaApplicationTests {
+public class JpaApplicationTests {
 
     @Autowired
     private EntityManager entityManager;
@@ -52,7 +52,7 @@ class JpaApplicationTests {
         // 使用生成的类
         QUser user = QUser.user;
         PageRequest createTime = PageRequest.of(0, 10, Sort.by(Sort.Order.desc("createTime")));
-        List<User> zhangsanList = userRepository.findAll();
-        System.out.println(zhangsanList);
+        Page<User> zhangsanList = userRepository.findAll(createTime);
+        System.out.println(zhangsanList.getContent());
     }
 }

@@ -6,3 +6,11 @@ spring:
     password: mysql111
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: none
+  redis:
+    host: 127.0.0.1
+    password: ''
+    port: 6379
+server:
+  port: 8080

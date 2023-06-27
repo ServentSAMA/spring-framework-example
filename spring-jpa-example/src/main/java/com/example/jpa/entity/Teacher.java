@@ -4,6 +4,7 @@ import javax.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity(name = "teacher")
@@ -16,12 +17,14 @@ public class Teacher {
 
     private String name;
 
-    private String classRoomId;
+    private Integer classRoomId;
 
     private String createBy;
 
-    private String createTime;
-
+    private Date createTime;
+    /**
+     * ToString.Exclude作用防止toString死循环
+     */
     @ToString.Exclude
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<User> users;
