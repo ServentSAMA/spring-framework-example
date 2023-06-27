@@ -1,6 +1,6 @@
-package com.example.jpa.entity.q;
+package com.example.data.entity.q;
 
-import com.example.jpa.entity.User;
+import com.example.data.entity.User;
 import com.querydsl.core.annotations.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;

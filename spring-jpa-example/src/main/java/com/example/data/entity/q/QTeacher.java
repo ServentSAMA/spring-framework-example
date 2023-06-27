@@ -1,8 +1,8 @@
-package com.example.jpa.entity.q;
+package com.example.data.entity.q;
 
-import com.example.jpa.entity.QUser;
-import com.example.jpa.entity.Teacher;
-import com.example.jpa.entity.User;
+import com.example.data.entity.QUser;
+import com.example.data.entity.Teacher;
+import com.example.data.entity.User;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
 import com.querydsl.core.types.dsl.*;
@@ -32,7 +32,7 @@ public class QTeacher extends EntityPathBase<Teacher> {
 
     public final StringPath name = createString("name");
 
-    public final ListPath<User, com.example.jpa.entity.QUser> users = this.<User, com.example.jpa.entity.QUser>createList("users", User.class, QUser.class, PathInits.DIRECT2);
+    public final ListPath<User, com.example.data.entity.QUser> users = this.<User, com.example.data.entity.QUser>createList("users", User.class, QUser.class, PathInits.DIRECT2);
 
     public QTeacher(String variable) {
         super(Teacher.class, forVariable(variable));

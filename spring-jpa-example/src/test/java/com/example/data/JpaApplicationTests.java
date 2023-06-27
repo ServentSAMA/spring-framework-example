@@ -1,11 +1,11 @@
-package com.example.jpa;
+package com.example.data;
 
 
-import com.example.jpa.entity.User;
-import com.example.jpa.entity.q.QUser;
-import com.example.jpa.repository.ClassRoomRepository;
-import com.example.jpa.repository.TeacherRepository;
-import com.example.jpa.repository.UserRepository;
+import com.example.data.entity.User;
+import com.example.data.entity.q.QUser;
+import com.example.data.repository.ClassRoomRepository;
+import com.example.data.repository.TeacherRepository;
+import com.example.data.repository.UserRepository;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;

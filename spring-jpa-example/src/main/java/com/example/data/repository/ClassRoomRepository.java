@@ -1,7 +1,7 @@
-package com.example.jpa.repository;
+package com.example.data.repository;
 
 
-import com.example.jpa.entity.ClassRoom;
+import com.example.data.entity.ClassRoom;
 
 public interface ClassRoomRepository extends BaseRepository<ClassRoom,Integer>{
 }
