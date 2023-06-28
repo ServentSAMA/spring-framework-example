@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "username": "zhangsan",
+      "password": "zhangsan",
+      "name": "张三",
+      "nickname": "san",
+      "hobby": "爱好",
+      "idCard": "371919191912122828",
+      "phone": "18828282828",
+      "photoUrl": "dada",
+      "teacher": {
+        "id": 1,
+        "name": "1"
+      }
+    }
+  ]
+}
