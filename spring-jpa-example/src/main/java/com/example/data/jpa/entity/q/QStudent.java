@@ -1,7 +1,6 @@
-package com.example.data.entity.q;
+package com.example.data.jpa.entity.q;
 
-import com.example.data.entity.QTeacher;
-import com.example.data.entity.Student;
+import com.example.data.jpa.entity.Student;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
 import com.querydsl.core.types.dsl.*;
@@ -43,7 +42,7 @@ public class QStudent extends EntityPathBase<Student> {
 
     public final StringPath photoUrl = createString("photoUrl");
 
-    public final com.example.data.entity.QTeacher teacher;
+    public final QTeacher teacher;
 
     public final StringPath username = createString("username");
 

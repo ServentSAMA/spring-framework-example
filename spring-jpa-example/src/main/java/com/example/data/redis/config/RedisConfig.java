@@ -1,7 +1,6 @@
-package com.example.data.config;
+package com.example.data.redis.config;
 
-import com.example.data.config.handle.MessageDelegate;
-import com.example.data.config.handle.impl.MessageDelegateImpl;
+import com.example.data.redis.config.handle.impl.MessageDelegateImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;

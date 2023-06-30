@@ -1,6 +1,6 @@
-package com.example.data.config.handle.impl;
+package com.example.data.redis.config.handle.impl;
 
-import com.example.data.config.handle.MessageDelegate;
+import com.example.data.redis.config.handle.MessageDelegate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

@@ -38,8 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().disable()
-                .httpBasic().disable();
+        // 关闭默认验证
+//        http.formLogin().disable()
+//                .httpBasic().disable();
         http.authorizeRequests()
                 // 排除不需要验证的
                 .antMatchers("/getId").permitAll()
@@ -49,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling()
                 .accessDeniedHandler(accessDeniedHandler)
                 .authenticationEntryPoint(authenticationEntryPoint);
+
 
     }
 

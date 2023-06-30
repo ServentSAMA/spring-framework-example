@@ -1,4 +1,4 @@
-package com.example.data.config.handle;
+package com.example.data.redis.config.handle;
 
 public interface MessageDelegate {
 

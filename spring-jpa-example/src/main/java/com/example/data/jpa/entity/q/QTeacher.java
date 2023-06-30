@@ -1,8 +1,7 @@
-package com.example.data.entity.q;
+package com.example.data.jpa.entity.q;
 
-import com.example.data.entity.QUser;
-import com.example.data.entity.Teacher;
-import com.example.data.entity.User;
+import com.example.data.jpa.entity.Student;
+import com.example.data.jpa.entity.Teacher;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
 import com.querydsl.core.types.dsl.*;
@@ -18,21 +17,31 @@ import static com.querydsl.core.types.PathMetadataFactory.forVariable;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QTeacher extends EntityPathBase<Teacher> {
 
-    private static final long serialVersionUID = 983034555L;
+    private static final long serialVersionUID = -1980917238L;
 
     public static final QTeacher teacher = new QTeacher("teacher");
 
-    public final StringPath classRoomId = createString("classRoomId");
+    public final NumberPath<Integer> classRoomId = createNumber("classRoomId", Integer.class);
 
     public final StringPath createBy = createString("createBy");
 
-    public final StringPath createTime = createString("createTime");
+    public final DateTimePath<java.util.Date> createTime = createDateTime("createTime", java.util.Date.class);
+
+    public final StringPath hobby = createString("hobby");
 
     public final NumberPath<Integer> id = createNumber("id", Integer.class);
 
+    public final StringPath idCard = createString("idCard");
+
     public final StringPath name = createString("name");
 
-    public final ListPath<User, com.example.data.entity.QUser> users = this.<User, com.example.data.entity.QUser>createList("users", User.class, QUser.class, PathInits.DIRECT2);
+    public final StringPath nickname = createString("nickname");
+
+    public final StringPath phone = createString("phone");
+
+    public final StringPath photoUrl = createString("photoUrl");
+
+    public final ListPath<Student, QStudent> users = this.<Student, QStudent>createList("users", Student.class, QStudent.class, PathInits.DIRECT2);
 
     public QTeacher(String variable) {
         super(Teacher.class, forVariable(variable));

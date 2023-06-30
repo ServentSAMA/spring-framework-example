@@ -1,6 +1,6 @@
-package com.example.data.entity.q;
+package com.example.data.jpa.entity.q;
 
-import com.example.data.entity.ClassRoom;
+import com.example.data.jpa.entity.ClassRoom;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.PathMetadata;
 import com.querydsl.core.types.dsl.EntityPathBase;

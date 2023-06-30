@@ -1,7 +1,7 @@
 package com.example.security.config.util;
 
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import com.example.security.config.base.HttpStatusEnum;
 import com.example.security.config.base.RequestResult;
 
@@ -15,7 +15,7 @@ import java.io.IOException;
 public class ResponseUtil {
 
     public static void response(HttpServletResponse response, HttpStatusEnum httpStatusEnum) throws IOException {
-        RequestResult requestResult = RequestResult.error(httpStatusEnum);
+        RequestResult<String> requestResult = RequestResult.error(httpStatusEnum);
         String jsonObject = JSON.toJSONString(requestResult);
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "*");

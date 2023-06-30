@@ -1,7 +1,7 @@
-package com.example.data.repository;
+package com.example.data.jpa.repository;
 
 
-import com.example.data.entity.Student;
+import com.example.data.jpa.entity.Student;
 
 public interface UserRepository extends BaseRepository<Student,Integer>{
 

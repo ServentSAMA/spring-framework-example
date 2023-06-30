@@ -5,10 +5,10 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import com.example.data.entity.QStudent;
-import com.example.data.entity.Student;
-import com.example.data.repository.ClassRoomRepository;
-import com.example.data.repository.TeacherRepository;
-import com.example.data.repository.UserRepository;
+import com.example.data.jpa.entity.Student;
+import com.example.data.jpa.repository.ClassRoomRepository;
+import com.example.data.jpa.repository.TeacherRepository;
+import com.example.data.jpa.repository.UserRepository;
 import com.google.common.collect.Lists;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.extern.slf4j.Slf4j;
@@ -82,7 +82,7 @@ public class JpaApplicationTests {
     }
 
     @Test
-    public void contextLoads() {
+    public void queryFactory() {
         QStudent user = QStudent.student;
         JPAQueryFactory queryFactory = new JPAQueryFactory(entityManager);
 
