@@ -78,6 +78,7 @@ public class Teacher {
      *  joinColumns：配置当前对象在中间表的外键
      *  referencedColumnName：参照的主表主键
      *  inverseJoinColumns：配置对方对象在中间表的外键
+     *  保存时级联添加JoinTable在那个类上，就保存那个类
      */
     @ToString.Exclude
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, targetEntity = Student.class)
