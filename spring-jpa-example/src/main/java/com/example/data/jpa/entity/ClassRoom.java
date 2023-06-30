@@ -1,9 +1,7 @@
 package com.example.data.jpa.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 import lombok.Data;
 
 @Data
@@ -11,7 +9,8 @@ import lombok.Data;
 public class ClassRoom {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", length = 120)
     private String id;
 
     private String name;

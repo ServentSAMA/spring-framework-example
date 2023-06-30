@@ -4,9 +4,10 @@ package com.example.data;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
-import com.example.data.entity.QStudent;
+
 import com.example.data.jpa.entity.Student;
 import com.example.data.jpa.entity.Teacher;
+import com.example.data.jpa.entity.q.QStudent;
 import com.example.data.jpa.repository.ClassRoomRepository;
 import com.example.data.jpa.repository.TeacherRepository;
 import com.example.data.jpa.repository.StudentRepository;
@@ -71,7 +72,7 @@ public class JpaApplicationTests {
 
         Student zhangsan = queryFactory.from(user)
                 .select(user)
-                .where(user.username.eq("zhangsan"))
+                .where(user.username.eq("buzhihuo"))
                 .fetchOne();
 
         System.out.println(zhangsan);
