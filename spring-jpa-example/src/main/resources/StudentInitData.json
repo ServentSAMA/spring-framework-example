@@ -10,8 +10,7 @@
       "phone": "18828282828",
       "photoUrl": "dada",
       "teacher": {
-        "id": 1,
-        "name": "1"
+        "id": 1
       }
     }
   ]

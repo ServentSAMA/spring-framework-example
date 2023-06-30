@@ -2,19 +2,47 @@ package com.example.data.jpa.entity;
 
 
 import javax.persistence.*;
+
+import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Date;
+import java.util.List;
 
+@Builder
 @Entity(name = "student")
 @Data
 public class Student {
+
+    public Student() {
+    }
+
+    public Student(String id, String username, String password, String name, String nickname, String hobby, String idCard, String phone, String photoUrl, String createBy, Date createTime, List<Teacher> teacher) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.nickname = nickname;
+        this.hobby = hobby;
+        this.idCard = idCard;
+        this.phone = phone;
+        this.photoUrl = photoUrl;
+        this.createBy = createBy;
+        this.createTime = createTime;
+        this.teacher = teacher;
+    }
+
     /**
      * 主键
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(generator = "identifierGeneratorImpl",
+            strategy = GenerationType.SEQUENCE)
+    @GenericGenerator(name = "identifierGeneratorImpl",
+            strategy = "com.example.data.jpa.config.impl.IdentifierGeneratorImpl")
+    private String id;
     /**
      * 用户名
      */
@@ -57,9 +85,21 @@ public class Student {
     private Date createTime;
     /**
      * 所属老师
+     * 多对多单向原则,如果当前表加入JoinTable注解会生成两个中间表
+     *
+     * CascadeType.REFRESH：级联刷新，当多个用户同时作操作一个实体，为了用户取到的数据是实时的，在用实体中的数据之前就可以调用一下refresh()方法
+     * CascadeType.REMOVE：级联删除，当调用remove()方法删除Order实体时会先级联删除OrderItem的相关数据
+     * CascadeType.MERGE：级联更新，当调用了Merge()方法，如果Order中的数据改变了会相应的更新OrderItem中的数据
+     * CascadeType.ALL：包含以上所有级联属性
+     * CascadeType.PERSIST：级联保存，当调用了Persist() 方法，会级联保存相应的数据
+     *
      */
-    @ManyToOne
-    @JoinColumn(name = "teacher_id")
-    private Teacher teacher;
+    @ToString.Exclude
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "teacher_student",
+            inverseJoinColumns = {@JoinColumn(name = "teacher_id",referencedColumnName = "id")},
+            joinColumns = {@JoinColumn(name = "student_id",referencedColumnName = "id")}
+    )
+    private List<Teacher> teacher;
 
 }

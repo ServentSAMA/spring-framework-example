@@ -8,7 +8,7 @@ public class Hobby {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
 
     @Column(name = "hobby_name", length = 40)
     private String hobbyName;
