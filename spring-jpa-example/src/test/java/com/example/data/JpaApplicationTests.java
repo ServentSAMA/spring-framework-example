@@ -1,16 +1,12 @@
 package com.example.data;
 
 
-import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.JSONArray;
-import com.alibaba.fastjson2.JSONObject;
-
 import com.example.data.jpa.entity.Student;
 import com.example.data.jpa.entity.Teacher;
 import com.example.data.jpa.entity.q.QStudent;
 import com.example.data.jpa.repository.ClassRoomRepository;
-import com.example.data.jpa.repository.TeacherRepository;
 import com.example.data.jpa.repository.StudentRepository;
+import com.example.data.jpa.repository.TeacherRepository;
 import com.google.common.collect.Lists;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.extern.slf4j.Slf4j;
@@ -24,12 +20,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.persistence.EntityManager;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 @Slf4j
 @SpringBootTest
@@ -70,13 +62,39 @@ public class JpaApplicationTests {
         QStudent user = QStudent.student;
         JPAQueryFactory queryFactory = new JPAQueryFactory(entityManager);
 
-        Student zhangsan = queryFactory.from(user)
+        Student buzhihuo = queryFactory.from(user)
                 .select(user)
                 .where(user.username.eq("buzhihuo"))
                 .fetchOne();
 
-        System.out.println(zhangsan);
+        System.out.println(buzhihuo);
     }
+
+    /**
+     * 更新
+     */
+    @Test
+    public void update(){
+        QStudent user = QStudent.student;
+        JPAQueryFactory queryFactory = new JPAQueryFactory(entityManager);
+
+
+        Student buzhihuo = queryFactory.from(user)
+                .select(user)
+                .where(user.username.eq("buzhihuo"))
+                .fetchOne();
+
+        buzhihuo.setHobby("阴阳师");
+        studentRepository.save(buzhihuo);
+    }
+
+    @Test
+    public void delete(){
+        QStudent student = QStudent.student;
+
+
+    }
+
     @Test
     public void jpaRepository(){
         // 使用生成的类
