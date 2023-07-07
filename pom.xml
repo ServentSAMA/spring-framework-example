@@ -23,6 +23,7 @@
     <modules>
         <module>spring-jpa-example</module>
         <module>spring-security-example</module>
+        <module>spring-test</module>
     </modules>
 
     <repositories>
