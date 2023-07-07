@@ -16,14 +16,19 @@ public class RedisTests {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
-
+    /**
+     * 发布消息
+     */
     @Test
     public void redisPubSubTest(){
         redisTemplate.convertAndSend("screen","张三:");
     }
 
+    /**
+     * redis字符串操作
+     */
     @Test
-    public void addValueOperations(){
+    public void valueOperations(){
         redisTemplate.opsForValue().set("key","value");
         Boolean ifAbsent = redisTemplate.opsForValue().setIfAbsent("key", "value");
         if (ifAbsent){
